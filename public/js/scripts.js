@@ -72,7 +72,7 @@ for(var i=5;i>quiz.questions[count].answers.length;i--){
 }//hiding buttons when there are less then 5 answers
 
 
-$.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",
+$.getJSON("https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",
   {
     tags: String(quiz.questions[0].meta_tags),
     tagmode: "any",
@@ -161,7 +161,7 @@ for(var i=5;i>quiz.questions[count].answers.length;i--){
 
 
 document.getElementById("images").innerHTML = "";
- $.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",
+ $.getJSON("https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",
   {
     tags: String(quiz.questions[count].meta_tags),
     tagmode: "any",
@@ -348,7 +348,7 @@ document.getElementById("c"+i).style.visibility = "visible";
 }
 
 document.getElementById("images").innerHTML = "";
- $.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",
+ $.getJSON("https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",
   {
     tags: String(quiz.questions[count].meta_tags),
     tagmode: "any",
