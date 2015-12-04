@@ -88,7 +88,7 @@ app.post('/quizOverall', function (req, res) {
   });
 });
 
-app.delete('/quizOverall/:id', function (req, res) {
+/* app.delete('/quizOverall/:id', function (req, res) {
 	quizOverallId = req.params.id;
     var content = JSON.parse(fs.readFileSync("data/quizOverall.json", 'utf8'));
     content.splice(quizOverallId, 1);
@@ -101,7 +101,26 @@ app.delete('/quizOverall/:id', function (req, res) {
     var bod= JSON.stringify(content);
     fs.writeFileSync('data/QuizOverall.json', bod, 'utf8');
     res.send('deleted a quiz Quiz!');
+}); */
+
+
+
+
+app.delete('/quizOverall/:id', function (req, res){
+  var quizOverallId = req.params.id;
+  var content = require('./data/quizOverall.json');
+  content.splice(quizOverallId, 1);
+
+    for(var i = quizOverallId; i<content.length; i++){
+      content[i].ID=content[i].ID-1;
+    }
+    
+    var bod= JSON.stringify(content, null, 4);
+    fs.writeFileSync('./data/quizOverall.json', bod, 'utf8');
 });
+
+
+
 
 app.listen(process.env.PORT || 3000);
 
