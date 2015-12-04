@@ -12,12 +12,15 @@ looking forward to phase III!
 
 document.getElementById("quizform").style.visibility = "hidden";
 document.getElementById("button").style.visibility = "hidden";
-var button = document.getElementById("submit"); 
+
+var button = document.getElementById("Buttonsubmit"); 
 var next = document.getElementById("nextButton"); 
 var back = document.getElementById("backButton"); 
 var return1 = document.getElementById("returnButton");   
+var deleteID = document.getElementById("Buttondelete");   
 
 
+deleteID.addEventListener("click", deleteQuiz);
 button.addEventListener("click", loadQuiz); //when submit is clicked on name page
 next.addEventListener("click", nextQuestion); //when next button is clicked
 back.addEventListener("click", backQuestion); //when back button is clicked
@@ -30,21 +33,48 @@ var accounts = [];
 var answer = [];
 var isItCorrect = [];
 var quiz;
+var idThing;
 
 
+function deleteQuiz(){
 
+for(var i=0; i<document.getElementById("dd").length; i++) {
+if(document.getElementById("dd")[i].selected == true){
+  idThing = i;
+  break;
+}
+}
+    $.ajax({
+        url: '/quizOverall/'+idThing,
+        type: 'DELETE',
+    });
+
+  }
 
 
 function loadQuiz(){
-    $.get("/quiz", function(data, status){
-        quiz = JSON.parse(data);
+
+for(var i=0; i<document.getElementById("dd").length; i++) {
+if(document.getElementById("dd")[i].selected == true){
+  idThing = i;
+  break;
+}
+}
+
+
+    $.get("/quizOverall/"+idThing, function(data, status){
+        quiz = data;
         generateQuestion();
  });
+
+
  }//loads the json file from data
 
 
 
 function generateQuestion(){   
+document.title=quiz.title;
+
     var x = document.getElementById("nameform");
     var text = "";
     var i;
@@ -66,7 +96,7 @@ for(var i=1;i<=quiz.questions[count].answers.length;i++){
         document.getElementById("c"+i).style.visibility = "visible";
         document.getElementById("c"+i+"1").style.visibility = "visible";
 }//writing the questions of the first question
-for(var i=5;i>quiz.questions[count].answers.length;i--){
+for(var i=6;i>quiz.questions[count].answers.length;i--){
        document.getElementById("c"+i).style.visibility = "hidden";
    document.getElementById("c"+i+"1").style.visibility = "hidden";
 }//hiding buttons when there are less then 5 answers
@@ -108,7 +138,7 @@ for (var i = 0; i <quiz.questions.length; i++) {
 
 
 function nextQuestion(){
-if(document.getElementById("c1").checked == true || document.getElementById("c2").checked == true || document.getElementById("c3").checked == true || document.getElementById("c4").checked == true || document.getElementById("c5").checked == true){
+if(document.getElementById("c1").checked == true || document.getElementById("c2").checked == true || document.getElementById("c3").checked == true || document.getElementById("c4").checked == true || document.getElementById("c5").checked == true|| document.getElementById("c6").checked == true){
     if(count!=quiz.questions.length-1){
         if(count==quiz.questions.length-2){
             document.getElementById("nextButton").innerHTML = "Submit";
@@ -129,10 +159,11 @@ if(document.getElementById("c1").checked == true || document.getElementById("c2"
 
 
 for(var i=1;i<=quiz.questions[count].answers.length;i++){
+  console.log(i);
             document.getElementById("c"+i).style.visibility = "visible";
             document.getElementById("c"+i+"1").style.visibility = "visible";
     if(document.getElementById("c"+i).checked == true){
-        if(quiz.questions[count-1].answers[i-1] == quiz.questions[count-1].correct_answer){
+        if(quiz.questions[count-1].answers[i-1] == quiz.questions[count-1].answers[quiz.questions[count-1].correct_answer]){
         answer[count-1] = quiz.questions[count-1].answers[i-1];
         }//if answer selected is the correct answer then add it to the array
 
@@ -154,7 +185,7 @@ for(var i=1;i<=quiz.questions[count].answers.length;i++){
     document.getElementById("c"+i+"1").innerHTML = quiz.questions[count].answers[i-1];
     }//write the answers for the question
 
-for(var i=5;i>quiz.questions[count].answers.length;i--){
+for(var i=6;i>quiz.questions[count].answers.length;i--){
     document.getElementById("c"+i).style.visibility = "hidden";
     document.getElementById("c"+i+"1").style.visibility = "hidden";
 }//hiding buttons when there are less then 5 answers
@@ -182,7 +213,7 @@ document.getElementById(accounts[count]).checked = true;
 
     for(var i=1;i<=quiz.questions[count].answers.length;i++){
     if(document.getElementById("c"+i).checked == true){
-        if(quiz.questions[count].answers[i-1] == quiz.questions[count].correct_answer){
+        if(quiz.questions[count].answers[i-1] == quiz.questions[count].answers[quiz.questions[count].correct_answer]){
         answer[count] = quiz.questions[count].answers[i-1];
         }//last question's button selected equals correct answer
 
@@ -196,7 +227,7 @@ document.getElementById(accounts[count]).checked = true;
 
 
 for (var i = 0; i <quiz.questions.length; i++) {
-    if(answer[i] == quiz.questions[i].correct_answer){
+    if(answer[i] == quiz.questions[i].answers[quiz.questions[i].correct_answer]){
     correct++;
     quiz.questions[i].global_correct++;
     quiz.questions[i].global_total++;
@@ -216,8 +247,8 @@ for (var i = 0; i <quiz.questions.length; i++) {
        var stuffToSend = JSON.stringify(quiz); //Array 
        console.log(stuffToSend);
     $.ajax({
-        url : "/quiz",
-        type: "POST",
+        url : "/quizOverall",
+        type: "PUT",
         dataType: "json",
         contentType: "application/json; charset=utf-8",
         data : stuffToSend
@@ -232,11 +263,13 @@ document.getElementById("c2").style.visibility = "hidden";
 document.getElementById("c3").style.visibility = "hidden";
 document.getElementById("c4").style.visibility = "hidden";
 document.getElementById("c5").style.visibility = "hidden";
+document.getElementById("c6").style.visibility = "hidden";
 document.getElementById("c11").style.visibility = "hidden";
 document.getElementById("c21").style.visibility = "hidden";
 document.getElementById("c31").style.visibility = "hidden";
 document.getElementById("c41").style.visibility = "hidden";
 document.getElementById("c51").style.visibility = "hidden";
+document.getElementById("c61").style.visibility = "hidden";
 document.getElementById("name_display").style.visibility = "hidden";
 document.getElementById("button").style.visibility = "hidden";
 document.getElementById("backButton").style.visibility = "hidden";
@@ -311,7 +344,7 @@ for (var i = 0; i < correctIncorrect.length; i++) {
 
 function backQuestion(){
 if(count==0){
-for(var i=5;i>quiz.questions[count].answers.length;i--){
+for(var i=6;i>quiz.questions[count].answers.length;i--){
             document.getElementById("c"+i).style.visibility = "hidden";
     document.getElementById("c"+i+"1").style.visibility = "hidden";
 }//if there are less than 5 answers spots get hidden
@@ -339,7 +372,7 @@ document.getElementById("c"+i).style.visibility = "visible";
     document.getElementById("question").innerHTML = quiz.questions[count].text; //writes question
 
 
-    for(var i=5;i>quiz.questions[count].answers.length;i--){
+    for(var i=6;i>quiz.questions[count].answers.length;i--){
     document.getElementById("c"+i).style.visibility = "hidden";
     document.getElementById("c"+i+"1").style.visibility = "hidden";
 }//hides answers when there are less than 5 answer choices

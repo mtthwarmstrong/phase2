@@ -8,12 +8,38 @@ body {
     font-size: 36px;
     margin-bottom: 25px;
 }
+
 #Rheader {
     font-family: 'cursive';
     color: #FF0000;
     text-align: CENTER;
     font-size: 36px;
     margin-bottom: 25px;
+}
+
+#dropDown{
+    text-align: CENTER;
+}
+#editTime{
+    text-align: CENTER;
+}
+#select{
+    text-align: CENTER;
+}
+#change{
+    text-align: CENTER;
+}
+#decision{
+    text-align: CENTER;
+}
+#Buttonselect{
+    text-align: CENTER;
+}
+#nameoverall{
+    text-align: CENTER;
+}
+#dd{
+    text-align: CENTER;
 }
 
 #name_display {
@@ -34,7 +60,6 @@ body {
     font-family: 'fantasy';
     color: black;
     text-align: CENTER;
-
 }
 
 h1 {

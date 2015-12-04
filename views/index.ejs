@@ -1,0 +1,115 @@
+<html>
+
+<head>
+    <title>SWAG QUIZ</title>
+    <link rel="stylesheet" type="text/css" href="css/quiz.css">
+        <script type="text/javascript" src='js/jquery.js'></script>
+</head>
+
+
+<body>
+
+<div id='header'>
+    <h1>
+        Random Fact Quiz
+    </h1>
+</div>
+
+<div id='nameoverall'>
+    <div id='name_statement'>
+        <h2>Name Below</h2>
+        <form id='nameform'>Name:
+            <input id='name' type="text" name="username" value=""></input>
+        </form>
+    </div>
+
+
+    <div id='dropDown'>
+        <h2>PLS SELECT YOUR QUIZ</h2>
+    <select id='dd'>
+        <% for(var i=0; i<titles.length; i++) { %>
+            <option value <%= i+1 %> > <%= titles[i] %> </option>
+        <% }; %>
+    </select>  
+    </div>  
+
+    <p> </p> 
+    <p> </p> 
+
+    <div id='submit'>
+    <button id='Buttonsubmit' >Submit</button>
+   <a href="/edit" > <button id='Buttonedit' >Edit</button> </a>
+    <a href="/make" > <button id='Buttonmake' >Make</button> </a>
+    <button id='Buttondelete' >Delete</button>
+    </div>
+    <p> </p> 
+    For Edit you do not need to select quiz until next page!
+</div>
+
+<div id='name_display'>
+        <h1 id='Name'></h1>
+    </div>
+
+<div id='quizform'>
+    <div id='qlayout'>
+        <h2 id='question'>This is where the question goes?</h2>
+    </div>
+
+    <div id='questionfrm'>
+        <input id='c1' type='radio' name='choices'></input>
+        <label id='c11' for="c1">Choice One</label>
+        <br></br>
+        <input id='c2' type='radio' name='choices'></input>
+        <label id='c21' for="c2">Choice Two</label>
+        <br></br>
+        <input id='c3' type='radio' name='choices'></input>
+        <label id='c31' for="c3">Choice Three</label>
+        <br></br>
+        <input id='c4' type='radio' name='choices'></input>
+        <label id='c41' for="c4">Choice Four</label>
+        <br></br>
+         <input id='c5' type='radio' name='choices'></input>
+        <label id='c51' for="c5">Choice Five</label>
+        <br></br>
+        <input id='c6' type='radio' name='choices'></input>
+        <label id='c61' for="c6">Choice Six</label>
+        <br></br>
+    </div>
+</div>
+
+<div id='button'>
+    <button id='backButton' >Back</button>
+    <button id='nextButton' >Next</button>
+</div>
+
+<div id="images"></div>
+
+<div id='resultsfrm'>
+    <div id='Rheader'>
+        <h1>Results: </h1>
+    </div>
+
+<div id='table'>
+<table id="myTable" border="1" align="center"></table>
+</div>
+
+<p> </p> 
+<p> </p> 
+
+<canvas id="piechart" width="400" height="400"></canvas>
+
+    <div id='ratioheader'>
+        <h1 id='ratio'></h1>
+    </div>
+
+    <div id='returnbutton'>
+     <button id='returnButton' >Return to Beggining</button>
+     </div>
+</div>
+
+
+
+<br></br>
+    <script src="js/scripts.js"></script>
+</body>
+</html>

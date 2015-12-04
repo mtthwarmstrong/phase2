@@ -1,0 +1,45 @@
+<html>
+
+<head>
+    <title>SWAG QUIZ</title>
+    <link rel="stylesheet" type="text/css" href="css/quiz.css">
+        <script type="text/javascript" src='js/jquery.js'></script>
+        <script type="text/javascript" src='js/jquery.serialize-object.min.js'></script>
+
+</head>
+
+<body>
+<div id='header'>
+    <h1>
+        EDIT QUIZ
+    </h1>
+</div>
+
+<div id='dropDown'>
+        <h2>PLS SELECT YOUR QUIZ</h2>
+    <select id='dd'>
+        <% for(var i=0; i<titles.length; i++) { %>
+            <option value <%= i+1 %> > <%= titles[i] %> </option>
+        <% }; %>
+    </select>  
+    </div>  
+    <p> </p> 
+
+     <div id='select'>
+    <button id='Buttonselect' >Select</button>
+    </div>
+
+<div id='editer'>
+    <h1>
+        CREATE QUIZ
+    </h1>
+</div>
+
+
+
+
+
+
+    <script src="js/scripts2.js"></script>
+</body>
+</html>

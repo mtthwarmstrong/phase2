@@ -1405,7 +1405,6 @@
         ]
     },
     {
-        "id": 8,
         "title": "Physics Quiz",
         "description": "BEST QUIZ EVER",
         "meta_tags": [
@@ -1419,7 +1418,7 @@
             "argentina",
             "math"
         ],
-        "diffifculty": "1-20",
+        "difficulty": "undefined",
         "questions": [
             {
                 "text": "1). What is Alastairs middle name?",
@@ -1430,11 +1429,11 @@
                     "James"
                 ],
                 "correct_answer": "0",
-                "global_correct": 2,
-                "global_total": 3,
                 "meta_tags": [
                     "english"
-                ]
+                ],
+                "global_correct": 3,
+                "global_total": 4
             },
             {
                 "text": "2). What is 9 plus 10?",
@@ -1446,11 +1445,11 @@
                     "394950495"
                 ],
                 "correct_answer": "0",
-                "global_correct": 1,
-                "global_total": 3,
                 "meta_tags": [
                     "addition"
-                ]
+                ],
+                "global_correct": 1,
+                "global_total": 4
             },
             {
                 "text": "3). What is Kerner's mom's maiden name?",
@@ -1460,11 +1459,11 @@
                     "Katz"
                 ],
                 "correct_answer": "0",
-                "global_correct": 1,
-                "global_total": 3,
                 "meta_tags": [
                     "name"
-                ]
+                ],
+                "global_correct": 1,
+                "global_total": 4
             },
             {
                 "text": "4). What is Ivkov's middle name?",
@@ -1476,11 +1475,11 @@
                     "Novak"
                 ],
                 "correct_answer": "0",
-                "global_correct": 1,
-                "global_total": 3,
                 "meta_tags": [
                     "argentina"
-                ]
+                ],
+                "global_correct": 1,
+                "global_total": 4
             },
             {
                 "text": "5). What is Armstrongs's middle name?",
@@ -1492,11 +1491,11 @@
                     "Hayden"
                 ],
                 "correct_answer": "2",
-                "global_correct": 1,
-                "global_total": 3,
                 "meta_tags": [
                     "middlename"
-                ]
+                ],
+                "global_correct": 1,
+                "global_total": 4
             },
             {
                 "text": "6). What is Joon's favorite league champion?",
@@ -1508,11 +1507,11 @@
                     "Fiora"
                 ],
                 "correct_answer": "3",
-                "global_correct": 1,
-                "global_total": 3,
                 "meta_tags": [
                     "leagueoflegends"
-                ]
+                ],
+                "global_correct": 1,
+                "global_total": 4
             },
             {
                 "text": "7). Most OP league champion?",
@@ -1524,11 +1523,11 @@
                     "Leblanc"
                 ],
                 "correct_answer": "0",
-                "global_correct": 2,
-                "global_total": 3,
                 "meta_tags": [
                     "leagueoflegends"
-                ]
+                ],
+                "global_correct": 2,
+                "global_total": 4
             },
             {
                 "text": "8). What is Andrea's (matt's mom's) favorite sport?",
@@ -1539,11 +1538,11 @@
                     "Skiing"
                 ],
                 "correct_answer": "0",
-                "global_correct": 1,
-                "global_total": 3,
                 "meta_tags": [
                     "sports"
-                ]
+                ],
+                "global_correct": 1,
+                "global_total": 4
             },
             {
                 "text": "9). What is Scott Armstrong's favorite book?",
@@ -1555,11 +1554,11 @@
                     "Pelican Brief"
                 ],
                 "correct_answer": "1",
-                "global_correct": 2,
-                "global_total": 3,
                 "meta_tags": [
                     "books"
-                ]
+                ],
+                "global_correct": 2,
+                "global_total": 4
             },
             {
                 "text": "10). Who is Conor Yuen's best friend?",
@@ -1571,13 +1570,26 @@
                     "Matt Armstrong"
                 ],
                 "correct_answer": "2",
-                "global_correct": 1,
-                "global_total": 3,
                 "meta_tags": [
                     "foreveralone"
-                ]
+                ],
+                "global_correct": 1,
+                "global_total": 4
+            },
+            {
+                "text": "swag",
+                "answers": [
+                    ""
+                ],
+                "correct_answer": "",
+                "meta_tags": [
+                    ""
+                ],
+                "global_correct": 1,
+                "global_total": 1
             }
-        ]
+        ],
+        "id": 8
     },
     {
         "id": 9,
@@ -2296,5 +2308,6 @@
             "extremely difficult",
             "not for the faint of heart"
         ]
+    
     }
 ]
