@@ -38,7 +38,7 @@ document.getElementById("editer").style.visibility = "visible";
             $(".editQuiz").append('<div<label for="title">Title</label><div><input type="text" id="title" name="title" value="' + quiz.title + '"placeholder="Title"></div></div>');
             $(".editQuiz").append('<div<label for="description">Description</label><div><textarea rows="2" id="description" name="description" placeholder="Description">' + quiz.description + '</textarea></div></div>');
 
-            $(".editQuiz").append('<div class="form-group-meta-tags-quiz"><label for="meta_tags">Meta_tags</label><div><input type="text" id="meta_tags" name="meta_tags[]" value="' + quiz.meta_tags[0] + '"placeholder="Meta_tag"></div><a><button id="addmetatagstoquiz" type="button"><i></i></button></a></div>');
+            $(".editQuiz").append('<div class="form-group-meta-tags-quiz"><label for="meta_tags">Meta_tags</label><div><input type="text" id="meta_tags" name="meta_tags[]" value="' + quiz.meta_tags[0] + '"placeholder="Meta_tag"></div><a><button id="addmetatagstoquiz" type="button"><i></i>Add Meta Tag</button></a></div>');
             for (var metatagsforquiz = 1; metatagsforquiz < quiz.meta_tags.length; metatagsforquiz++){
             $(".form-group-meta-tags-quiz").append('<div class="col-sm-offset-2 col-sm-8"><input type="text" class="form-control" id="meta_tags" name="meta_tags[]" value="' + quiz.meta_tags[metatagsforquiz] + '" placeholder="Answer Choice"></div>');
             }
@@ -49,14 +49,14 @@ document.getElementById("editer").style.visibility = "visible";
             $(".editQuiz").append('<h4>Question ' + (y+1) + '</h4>');
             $(".editQuiz").append('<div><label for="question' + (y+1) + '">Text </label><div><input type="text"id="text' + (y+1) + '" name="questions[' + y + '][text]" value="' + quiz.questions[y].text + '" placeholder="Text"></div></div>');
 
-            $(".editQuiz").append('<div id="question' + y + '" alt="' + y + '"><label for="answerchoice' + (y+1) + '"">Answer Choices</label><div><input type="text" id="answerchoice' + (y+1) + '" name="questions[' + y + '][answers][]" value="' + quiz.questions[y].answers[0] + '" placeholder="Answer Choice"></div><a><button id="addchoicestoquestionedit" type="button"><i></i></button></a></div>');
+            $(".editQuiz").append('<div id="question' + y + '" alt="' + y + '"><label for="answerchoice' + (y+1) + '"">Answer Choices</label><div><input type="text" id="answerchoice' + (y+1) + '" name="questions[' + y + '][answers][]" value="' + quiz.questions[y].answers[0] + '" placeholder="Answer Choice"></div><a><button id="addchoicestoquestionedit" type="button"><i></i>Add Answer Choice</button></a></div>');
             for (var questionsforquiz = 1; questionsforquiz < quiz.questions[y].answers.length; questionsforquiz++){
             $("#question" + y).append('<div><input type="text" id="meta_tags" name="questions[' + $("#question" + y).attr("alt") + '][answers][]" value="' + quiz.questions[y].answers[questionsforquiz] + '" placeholder="Answer Choice"></div>');
             }
 
             $(".editQuiz").append('<div><label for="correctanswer' + (y+1) + '">Correct Answer</label><div><input type="text" id="correctanswer' + (y+1) + '" name="questions[' + y + '][correct_answer]" value="' + quiz.questions[y].correct_answer + '" placeholder="Correct Answer (# of the array spot; i.e 0,1,2,3...)"></div></div>');
 
-            $(".editQuiz").append('<div id="metatagforquestion' + y + '" alt="' + y + '"><label for="meta_tags' + (y+1) + '">Meta_tags</label><div><input type="text" id="meta_tags' + (y+1) + '" name="questions[' + y + '][meta_tags][]" value="' + quiz.questions[y].meta_tags[0] + '" placeholder="Meta_tag"></div><a><button id="addmetatagstoquestionedit" type="button" ><i></i></button></a></div>');
+            $(".editQuiz").append('<div id="metatagforquestion' + y + '" alt="' + y + '"><label for="meta_tags' + (y+1) + '">Meta_tags</label><div><input type="text" id="meta_tags' + (y+1) + '" name="questions[' + y + '][meta_tags][]" value="' + quiz.questions[y].meta_tags[0] + '" placeholder="Meta_tag"></div><a><button id="addmetatagstoquestionedit" type="button" ><i></i>Add Meta Tag</button></a></div>');
             for (var metatagsforquestions = 1; metatagsforquestions < quiz.questions[y].meta_tags.length; metatagsforquestions++){
             $("#metatagforquestion" + y).append('<div><input type="text" id="meta_tags" name="questions[' + $("#question" + y).attr("alt") + '][meta_tags][]" value="' + quiz.questions[y].meta_tags[metatagsforquestions] + '" placeholder="Meta_tag"></div>');
             }
@@ -81,9 +81,9 @@ document.getElementById("editer").style.visibility = "visible";
         $(".editQuiz").append('<hr>');
         $(".editQuiz").append('<h4>Question ' + (counteredit+1) + '</h4>');
         $(".editQuiz").append('<div><label for="question' + (counteredit+1) + '">Text </label><div><input type="text"id="text' + (counteredit+1) + '" name="questions[' + counteredit + '][text]" placeholder="Text"></div></div>');
-        $(".editQuiz").append('<div alt="' + counteredit + '"><label for="answerchoice' + (counteredit+1) + '">Answer Choices</label><div><input type="text" id="answerchoice' + (counteredit+1) + '" name="questions[' + counteredit + '][answers][]" placeholder="Answer Choice"></div><a><button id="addchoicestoquestion" type="button"><i></i></button></a></div>');
+        $(".editQuiz").append('<div alt="' + counteredit + '"><label for="answerchoice' + (counteredit+1) + '">Answer Choices</label><div><input type="text" id="answerchoice' + (counteredit+1) + '" name="questions[' + counteredit + '][answers][]" placeholder="Answer Choice"></div><a><button id="addchoicestoquestionedit" type="button"><i></i>Add Answer Choice</button></a></div>');
         $(".editQuiz").append('<div ><label for="correctanswer' + (counteredit+1) + '">Correct Answer</label><div><input type="text" id="correctanswer' + (counteredit+1) + '" name="questions[' + counteredit + '][correct_answer]" placeholder="Correct Answer (# of the array spot; i.e 0,1,2,3...)"></div></div>');
-        $(".editQuiz").append('<div  alt="' + counteredit + '"><label for="meta_tags' + (counteredit+1) + '">Meta_tags</label><div><input type="text" id="meta_tags' + (counteredit+1) + '" name="questions[' + counteredit + '][meta_tags][]" placeholder="Meta_tag"></div><a><button id="addmetatagstoquestion" type="button"><i></i></button></a></div>');
+        $(".editQuiz").append('<div  alt="' + counteredit + '"><label for="meta_tags' + (counteredit+1) + '">Meta_tags</label><div><input type="text" id="meta_tags' + (counteredit+1) + '" name="questions[' + counteredit + '][meta_tags][]" placeholder="Meta_tag"></div><a><button id="addmetatagstoquestionedit" type="button"><i></i>Add Meta Tag</button></a></div>');
         counteredit++;
     });
     $("#editer").on("click", "#editquizbutton", function() { //the submit button for the quiz creation process.
